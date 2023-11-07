@@ -1,0 +1,104 @@
+.create_form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.form_inner{
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px 0;
+    padding: 35px 30px;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+
+}
+.form_title{
+    width: 100%;
+}
+.form_inner select{
+    width: 100%;
+    display: block;
+    padding: 10px 0 10px 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+.form_inner input,
+.form_inner textarea{
+    width: 100%;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px 0 10px 10px;
+}
+.form_btn{
+    width: 100%;
+    background: dimgrey;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.form_danger{
+    color: red;
+}
+
+.blog_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.post_item{
+    width: calc(50% - 5px);
+}
+
+.user_image{
+    width: 75px;
+    height: 75px;
+   }
+
+.thumb_user{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.post_inner_top{
+    height: 200px;
+}
+
+.post_buttons{
+    display: flex;
+    justify-content: end;
+}
+
+.post_edit_btn{
+    padding: 10px 15px;
+    border: none;
+    color: #000;
+    text-decoration: none;
+    background-color: springgreen;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.post_edit_btn:hover{
+    text-decoration: none;
+}
+
+.post_delete_btn{
+    padding: 10px 15px;
+    border: none;
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+}
+
+.post_update_img{
+    height: 75px;
+}
