@@ -102,3 +102,11 @@
 .post_update_img{
     height: 75px;
 }
+
+.commit_delete_btn{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+}
+

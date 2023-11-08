@@ -38,8 +38,8 @@
     <div class="header_container">
         <div class="header clearfix">
             <div class="logo">
-                <h1><a href="index9ba3.html?page=home" title="Pressroom">Pressroom</a></h1>
-                <h4>News and Magazine web site</h4>
+                <h1><a href="{{ route('main') }}" title="Pressroom">Pressroom</a></h1>
+                <h4>{{ __('News web site') }}</h4>
             </div>
         </div>
     </div>
@@ -49,29 +49,45 @@
             <ul class="sf-menu">
                 <li class="submenu">
                     <a href="{{route('main')}}" title="Home">
-                        Home
+                        {{ __('Home') }}
                     </a>
                 </li>
                 <li class="submenu">
                     <a href="{{route('about')}}" title="Pages">
-                        About us
+                        {{ __('About us') }}
                     </a>
                 </li>
                 <li class="submenu">
                     <a href="{{route('blog')}}" title="Blog">
-                        Blog
+                        {{ __('Blog') }}
                     </a>
                 </li>
                 <li class="submenu">
                     <a href="{{route('authors')}}" title="Authors">
-                        Authors
+                        {{ __('Authors') }}
                     </a>
                 </li>
                 <li class="submenu">
                     <a href="{{route('contact')}}" title="Contact">
-                        Contact
+                        {{__('Contact')}}
                     </a>
                 </li>
+                <li class="submenu">
+                    <a href="#" title="Pages">
+                        {{ $current_locale }}
+                    </a>
+                    <ul>
+                        @foreach($all_locales as $locale)
+                            <li>
+                                <a href="{{ route('change_lang', ['locale' => $locale]) }}">
+                                    {{ $locale }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+
+
                 <li class="submenu">
                     <a href="#">
                         @if(auth()->user())
@@ -83,18 +99,18 @@
                         @if(! auth()->user())
                             <li>
                                 <a href="{{ route('login') }}" title="Home Style 1">
-                                    Log In
+                                    {{__('Log In')}}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('register') }}" title="Home Style 2">
-                                    Sign Up
+                                    {{__('Sign Up')}}
                                 </a>
                             </li>
                         @else
                             <li>
                                 <a href="{{ route('post.create') }}" title="Home Style 1">
-                                    Create Post
+                                    {{__('Create Post')}}
                                 </a>
                             </li>
                             <li>

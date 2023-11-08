@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -67,9 +68,11 @@ class PostController extends Controller
     public function show(Post $post)
     {
 
-        $add = DB::update('update posts set seen_count = 1 where id ='. $post->id);
+        $add = DB::update('update posts set seen_count = seen_count + 1 where id ='. $post->id);
 
         $posts = Post::latest()->paginate(5);
+        $comment =  Comment::all();
+
 
         return view('post.show')->with([
             'user' => $post->user->name,
@@ -82,7 +85,8 @@ class PostController extends Controller
             'body' => $post->body,
             'seen_count' => $post->seen_count,
             'time' => $post->created_at,
-            'posts' => $posts
+            'posts' => $posts,
+            'comments' => $comment,
 
         ]);
     }
@@ -140,6 +144,10 @@ class PostController extends Controller
     {
         if (! Gate::allows('edit-post', auth()->user())){
             abort(401);
+        }
+
+        if (isset($post->file_url)){
+            Storage::delete($post->file_url);
         }
         $post->delete();
 

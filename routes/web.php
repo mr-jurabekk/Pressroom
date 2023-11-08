@@ -30,7 +30,10 @@ Route::get('/blog', [\App\Http\Controllers\PagesController::class, 'blog'])->nam
 Route::get('/authors', [\App\Http\Controllers\PagesController::class, 'authors'])->name('authors');
 Route::get('/contact', [\App\Http\Controllers\PagesController::class, 'contact'])->name('contact');
 
+Route::get('language/{locale}', [\App\Http\Controllers\LanguageController::class, 'change'])->name('change_lang');
+
 Route::resources([
     'post' => \App\Http\Controllers\PostController::class,
+    'comment' => \App\Http\Controllers\CommentController::class,
 ]);
 require __DIR__.'/auth.php';
